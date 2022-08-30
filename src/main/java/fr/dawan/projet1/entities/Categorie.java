@@ -27,7 +27,7 @@ public class Categorie implements Serializable {
 	@Column(nullable = false)
 	private String nom;
 
-	@OneToMany(mappedBy = "categorie", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
 	private List<Article> articles = new ArrayList<>();
 
 	@Version

@@ -35,12 +35,12 @@
 			        <td><c:out value="${u.email}"/></td>
 			        <td>
 			        <c:forEach items="${u.adresseFacturation}" var ="af">
-			        	<c:out value='${af.numero} ${af.rue} ${af.codePostal} ${af.ville}'/>
+			        	<c:out value='${af.numero} ${af.rue} ${af.codePostal} ${af.ville}'/><br>
 			        </c:forEach>
 			        </td>
 			        <td>
 			        <c:forEach items="${u.adresseLivraison}" var ="al">
-			        	<c:out value='${al.numero} ${al.rue} ${al.codePostal} ${al.ville}'/>
+			        	<c:out value='${al.numero} ${al.rue} ${al.codePostal} ${al.ville}'/><br>
 			        </c:forEach>
 			        </td>
 			        <td><c:out value="${u.telephone}"/></td>

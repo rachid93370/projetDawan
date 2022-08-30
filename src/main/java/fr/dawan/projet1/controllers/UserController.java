@@ -22,19 +22,19 @@ import fr.dawan.projet1.forms.UserForm;
 import fr.dawan.projet1.repositories.UtilisateurRepository;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
 	@Autowired
 	UtilisateurRepository utilisateurRepository;
 	
 	// Ajout d'un utilisateur
+	
 	@GetMapping("/signIn")
 	public String ajoutUtilisateur(@ModelAttribute("formUser") UserForm userForm) {
 		return "addUser";
 	}
 
-	
 	@PostMapping("/signIn")
 	public ModelAndView ajoutUtilisateur(@Validated @ModelAttribute("formUser") UserForm userForm,
 			BindingResult results) {
@@ -57,22 +57,19 @@ public class UserController {
 		}
 		return mdv;
 	}
-
+	
+	// Infos utilisateur
+	
 	@GetMapping("/infos")
 	public String accueil() {
 		return "userInfos";
 	}
-
+	
+	// Modification utilisateur
+	
 	@GetMapping("/update")
 	public String updateUser(@ModelAttribute("formUser") UserForm userForm) {
 		return "updateUser";
-	}
-
-	// Retourne tous les utilisateurs
-	@GetMapping
-	public String getAllUtilisateur(Model model) {
-		model.addAttribute("users", utilisateurRepository.findAll());
-		return "listUsersInfos";
 	}
 
 }

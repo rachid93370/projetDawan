@@ -23,5 +23,10 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	@org.springframework.data.jpa.repository.Query ("select a from Article a where promo != 0")
 	List<Article> ArticleWithPromo();
 	
+	@org.springframework.data.jpa.repository.Query ("select a from Article a")
+	List<Article> ArticleAll();
+	
+	
+	
 
 }

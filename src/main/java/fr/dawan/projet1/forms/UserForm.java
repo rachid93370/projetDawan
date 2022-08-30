@@ -31,33 +31,30 @@ public class UserForm {
 	@NotBlank
 	@Size(min = 6, max = 50)
 	private String motPasse;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Past
 	private LocalDate dateNaissance;
-	
 
 	@NotBlank
 	@Size(min = 6, max = 40)
 	private String confirmMotPasse;
 
-
 	@NotBlank
 	@Size(max = 4)
 	private String numero;
-	
+
 	@NotBlank
 	@Size(max = 255)
 	private String rue;
-	
+
 	@NotBlank
 	@Size(min = 5, max = 6)
 	private String codePostal;
-	
+
 	@NotBlank
 	@Size(max = 255)
 	private String ville;
-
 
 	public String getPrenom() {
 		return prenom;
@@ -107,7 +104,6 @@ public class UserForm {
 		this.confirmMotPasse = confirmMotPasse;
 	}
 
-
 	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
@@ -147,8 +143,5 @@ public class UserForm {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
-	
-	
 
 }

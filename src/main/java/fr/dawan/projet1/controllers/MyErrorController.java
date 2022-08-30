@@ -15,16 +15,16 @@ public class MyErrorController implements ErrorController {
 		int codeErreur = (int) request.getAttribute("javax.servlet.error.status_code");
 		switch (codeErreur) {
 		case 404:
-			model.addAttribute("msgErreur", "La page est introuvable");
+			model.addAttribute("msgErreur", "La page demandée est introuvable.");
 			break;
 		case 403:
-			model.addAttribute("msgErreur", "Vous n'avez pas l'autorisation");
+			model.addAttribute("msgErreur", "Vous n'avez pas l'autorisation.");
 			break;
 		case 500:
-			model.addAttribute("msgErreur", "une erreur interne c'est produite");
+			model.addAttribute("msgErreur", "Une erreure interne s'est produite.");
 			break;
 		default:
-			model.addAttribute("msgErreur", "une erreur c'est produite");
+			model.addAttribute("msgErreur", "Une erreure s'est produite.");
 		}
 		model.addAttribute("codeErreur", codeErreur);
 		return "error";

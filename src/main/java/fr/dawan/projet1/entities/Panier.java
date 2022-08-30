@@ -35,7 +35,7 @@ public class Panier implements Serializable {
 	private Utilisateur user;
 
 	@OneToMany
-	@Column(name="idVenteProduit")
+	@Column(name = "idVenteProduit")
 	private List<VenteArticle> articles = new ArrayList<>();
 
 	private int quantite;

@@ -17,6 +17,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name = "articles")
 public class Article implements Serializable {
@@ -24,7 +27,7 @@ public class Article implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	@Column(nullable = false)
@@ -56,8 +59,8 @@ public class Article implements Serializable {
 	@OneToMany(mappedBy = "article")
 	private List<AvisArticle> avis = new ArrayList<>();
 
-	// @OneToMany(mappedBy="article")
-	// private List<Panier> panier = new ArrayList<>();
+//	@OneToMany(mappedBy = "article")
+//	private List<Panier> panier = new ArrayList<>();
 
 	public Article() {
 		super();

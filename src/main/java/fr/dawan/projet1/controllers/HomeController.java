@@ -8,10 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import fr.dawan.projet1.forms.UserForm;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class HomeController {
-
-	@GetMapping("/")
+	
+//	@GetMapping
+//	public String accueil2() {
+//		return "home";
+//	}
+	
+	@GetMapping("/home")
 	public String accueil() {
 		return "home";
 	}
@@ -20,4 +25,5 @@ public class HomeController {
 	public String signIn(@ModelAttribute("formUser") UserForm userForm) {
 		return "addUser";
 	}
+	
 }

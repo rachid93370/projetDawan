@@ -6,7 +6,7 @@
 </c:import>
 <main class="container">
 	<h2 class="text-center bg-dark text-light rounded p-5 mx-auto">Bienvenue sur notre boutique retrogaming !!!</h2>
-	<c:forTokens items = "Jeux,Consoles,Accessoires" delims = "," var = "categorie">	   
+	<c:forTokens items = "Jeux Vidéos,Consoles,Accessoires" delims = "," var = "categorie">	   
 		<div class="container my-5" value="${ i }" >
 			<h2 class="mb-3">Nos <c:out value = "${categorie}"/></h2>
     		<div class="row">

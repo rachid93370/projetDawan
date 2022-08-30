@@ -50,7 +50,6 @@
 					<form:input path="codePostal" type="text" class="form-control"/>					
 					<form:label path="ville" class="form-label">Ville</form:label> 
 					<form:input path="ville" type="text" class="form-control"/>
-					
 				</div>
 				<div class="mb-3">
 					<form:label path="motPasse" for="inputPassword" class="form-label">Mot de passe</form:label>
