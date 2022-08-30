@@ -1,0 +1,125 @@
+@import
+	url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap')
+	;
+
+*::before, *::after {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-image: url("https://wallpaperaccess.com/full/4013412.jpg");
+	background-repeat: round repeat;
+	background-position: right 50% top 15%;
+}
+
+main {	
+	flex: 1 0 auto;
+	background-color: white;
+	padding: 10px;
+}
+
+.h1, h1, .h3, h2, h3, h5, a, button {
+	font-family: 'Silkscreen', cursive;
+}
+
+h1>a {
+	text-decoration: none;
+}
+
+nav {
+	background-image:
+		url("https://media.istockphoto.com/vectors/cute-meadow-area-with-clouds-stars-and-mountains-vector-id1182467056?k=20&m=1182467056&s=612x612&w=0&h=1dUn-3Am0dxxxkEGS04WvQgbCa8PCkps-Y0F2vvAAS0=");
+}
+
+.navbar a {
+	color: black;
+	font-size: 1.5em;
+}
+
+@media ( max-width : 767px) {
+	.carousel-inner .carousel-item>div {
+		display: none;
+	}
+	.carousel-inner .carousel-item>div:first-child {
+		display: block;
+	}
+	.carousel-item .img-fluid{
+        width: 70vh;
+    }
+}
+
+.carousel .card-img img {
+	height: 25vh;
+	width: 250px;
+}
+
+.carousel-inner .carousel-item.active, .carousel-inner .carousel-item-next,
+	.carousel-inner .carousel-item-prev {
+	display: flex;
+}
+
+/* medium and up screens */
+@media ( min-width : 992px) {
+	.carousel-inner .carousel-item-end.active, .carousel-inner .carousel-item-next
+		{
+		transform: translateX(25%);
+	}
+	.carousel-inner .carousel-item-start.active, .carousel-inner .carousel-item-prev
+		{
+		transform: translateX(-25%);
+	}
+}
+
+@media ( min-width : 991px) {
+	.carousel-inner .carousel-item-end.active, .carousel-inner .carousel-item-next
+		{
+		transform: translateX(50%);
+	}
+	.carousel-inner .carousel-item-start.active, .carousel-inner .carousel-item-prev
+		{
+		transform: translateX(-50%);
+	}
+}
+
+.carousel-inner .carousel-item-end, .carousel-inner .carousel-item-start
+	{
+	transform: translateX(0);
+}
+
+@media ( max-width : 991px) {
+	#responsiveBasket {
+		display: block;
+	}
+	#basket {
+		display: none;
+	}
+}
+
+@media ( min-width : 992px) {
+	#responsiveBasket {
+		display: none;
+	}
+	#basket {
+		display: block;
+	}
+}
+
+.list-group-flush {
+	font-size: 1.5em;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	flex-shrink: 0;
+}
+
+footer p {
+	font-family: 'Silkscreen', cursive;
+}
