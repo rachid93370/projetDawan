@@ -12,7 +12,7 @@
 			<table class="table">
 				<thead>
 					<tr>
-<!-- 						<th>Id</th> -->
+						<!-- 						<th>Id</th> -->
 						<th>Nom</th>
 						<th>Description</th>
 						<th>Prix</th>
@@ -20,7 +20,7 @@
 						<th>Quantité</th>
 						<th>Catégorie</th>
 						<th>Marque</th>
-<!-- 						<th>Disponible</th> -->
+						<!-- 						<th>Disponible</th> -->
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -33,15 +33,18 @@
 							<td><c:out value="${a.prix}" /></td>
 							<td><c:out value="${a.photo}" /></td>
 							<td><c:out value="${a.quantite}" /></td>
-							<td><c:out value="${a.categorie.nom}"/></td>
-							<td><c:out value="${a.marque.nom}"/></td>
+							<td><c:out value="${a.categorie.nom}" /></td>
+							<td><c:out value="${a.marque.nom}" /></td>
 							<%-- 	<td><c:out value="${a.disponible}"/></td>    --%>
-							<c:url value='/admin/articles/delete/${a.id}'
-								context="/springmvc" var="urlDelete" />
-							<c:url value='/admin/articles/update/${a.id}'
-								context="/springmvc" var="urlUpdate" />
-							<td><a class="btn btn-danger me-3" href="${urlUpdate}">Modifier</a><a
-								class="btn btn-danger" href="${urlDelete}">Supprimer</a></td>
+							<c:url value='/admin/updateArticle/${a.id}'
+								context="/springbootProject" var="urlUpdate" />
+							<c:url value='/admin/deleteArticle/${a.id}'
+								context="/springbootProject" var="urlDelete" />
+							<td><a class="btn btn-danger me-3" href="${urlUpdate}">Modifier</a>
+<!-- 							<br></br> -->
+							<a class="btn btn-danger" href="${urlDelete}">Supprimer</a>
+							</td>
+
 						</tr>
 					</c:forEach>
 				</tbody>

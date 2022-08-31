@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:forEach items="${utilisateur}" var="users">
-		<h3>${users.prenom} ${users.nom}</h3>
+		<h3>${users.id} ${users.prenom} ${users.nom}</h3>
 	</c:forEach>
 
 </body>

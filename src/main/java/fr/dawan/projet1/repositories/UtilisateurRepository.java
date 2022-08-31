@@ -15,6 +15,7 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
 	@org.springframework.data.jpa.repository.Query ("select a from Utilisateur a where id = :id")
 	List<Utilisateur> UtilisateurById(@Param("id") Long id);
 	
+	Utilisateur findByEmail(String email);
 	
 
 }

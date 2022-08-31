@@ -17,7 +17,7 @@
 <body>
 	<main>
 		<div class="container my-5">
-		<c:url value="/user/signIn" context="/springbootProject" var="urlform"/>
+		<c:url value="/signIn" context="/springbootProject" var="urlform"/>
 			<form:form method="post" action="${urlform}" modelAttribute="formUser" class="col-md-5 p-5 shadow-sm mb-5 bg-body rounded mx-auto">
 				<h1 class="bg-black p-4 rounded text-center text-light h3">Springboot Project</h1>
 				<p class="bg-light p-4 rounded text-center h3">Inscrivez-vous</p>

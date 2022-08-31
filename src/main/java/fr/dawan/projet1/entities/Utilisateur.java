@@ -3,11 +3,14 @@ package fr.dawan.projet1.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -59,6 +62,12 @@ public class Utilisateur implements Serializable {
 
 	@Version
 	private int version;
+	
+	// Ajout pour les autorities et l'activation par email
+	@ManyToMany(fetch = FetchType.EAGER)
+	private Set<Authority> authorities = new HashSet<>();
+	
+	private boolean enabled;
 
 	public Utilisateur() {
 		super();
@@ -204,6 +213,22 @@ public class Utilisateur implements Serializable {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	@Override

@@ -28,35 +28,7 @@ public class UserController {
 	@Autowired
 	UtilisateurRepository utilisateurRepository;
 	
-	// Ajout d'un utilisateur
 	
-	@GetMapping("/signIn")
-	public String ajoutUtilisateur(@ModelAttribute("formUser") UserForm userForm) {
-		return "addUser";
-	}
-
-	@PostMapping("/signIn")
-	public ModelAndView ajoutUtilisateur(@Validated @ModelAttribute("formUser") UserForm userForm,
-			BindingResult results) {
-        	new MotdePasseValidation().validate(userForm, results);
-		ModelAndView mdv = new ModelAndView();
-		if (results.hasErrors()) {
-			mdv.setViewName("addUser");
-			mdv.addObject("formUser", userForm);
-			mdv.addObject("errors", results);
-		} else {
-			Adresse a = new Adresse(userForm.getNumero(), userForm.getRue(), userForm.getCodePostal(), userForm.getVille());
-			List<Adresse> listAdresse = new ArrayList<>();
-			listAdresse.add(a);
-			Utilisateur u = new Utilisateur(userForm.getNom(), userForm.getPrenom(), userForm.getEmail(),
-					userForm.getMotPasse(), userForm.getTelephone(), LocalDate.now(), userForm.getDateNaissance());
-			u.setAdresseFacturation(listAdresse);
-			u.setAdresseLivraison(listAdresse);			
-			utilisateurRepository.saveAndFlush(u);
-			mdv.setViewName("redirect:/home/");
-		}
-		return mdv;
-	}
 	
 	// Infos utilisateur
 	

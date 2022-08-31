@@ -66,11 +66,23 @@ public class AdminController {
 		return "listArticles";
 	}
 	
+	// Supprimer un article
+	@GetMapping("deleteArticle/{id}")
+	public String deleteArticle(@PathVariable long id) {
+		articleRepository.deleteById(id);
+		return "redirect:/admin/articles";
+	}
+	
 	// Ajoute un article
 
 	@GetMapping("/addArticle")
 	public String addArticle(@ModelAttribute("formArticle") ArticleForm userForm) {
 		return "addArticle";
+	}
+	
+	@GetMapping("/updateArticle")
+	public String updateArticle(@ModelAttribute("formArticle") ArticleForm userForm) {
+		return "updateArticle";
 	}
 
 	@PostMapping("/addArticle")
@@ -92,10 +104,5 @@ public class AdminController {
 		return mdv;
 	}
 	
-	//
-	@GetMapping("/updateArticle")
-	public String updateArticle(@ModelAttribute("formArticle") ArticleForm userForm) {
-		return "updateArticle";
-	}
 
 }

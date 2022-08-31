@@ -28,7 +28,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item mx-md-3"><a class="nav-link active"
 						aria-current="page" href="#">Jeux Vidéo</a></li>
-					<li class="nav-item mx-md-3"><a class="nav-link" href="#">Consoles</a></li>
+					<li class="nav-item mx-md-3"><a class="nav-link" href='<c:url value="/categories/1" context="/springbootProject"/>'>Consoles</a></li>
 					<li class="nav-item dropdown mx-md-3"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false">Accessoires</a>
@@ -40,7 +40,7 @@
 					</li>
 				</ul>
 				<div class="d-flex flex-md-row flex-column me-md-2">
-					<a class="btn btn-outline-dark me-md-3" href='<c:url value="/user/login" context="/springbootProject"/>'>Se Connecter</a>
+					<a class="btn btn-outline-dark me-md-3" href='<c:url value="/login" context="/springbootProject"/>'>Se Connecter</a>
 					<a id="basket" type="button" href='<c:url value="/articles/basket" context="/springbootProject"/>' class="btn btn-danger text-light">
 						Mon Panier <span class="badge text-bg-secondary">4</span>
 					</a>

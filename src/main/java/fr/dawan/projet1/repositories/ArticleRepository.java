@@ -14,6 +14,9 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	@org.springframework.data.jpa.repository.Query ("select a from Article a where categorie = :id")
 	List<Article> ArticleByCategorie(@Param("id") Categorie cat);
 	
+	@org.springframework.data.jpa.repository.Query ("select a from Article a where categorie.id = :id")
+	List<Article> ArticleByIdCategorie(@Param("id") long cat);
+	
 	@org.springframework.data.jpa.repository.Query ("select a from Article a where id = :id")
 	List<Article> ArticleById(@Param("id") Long id);
 	
