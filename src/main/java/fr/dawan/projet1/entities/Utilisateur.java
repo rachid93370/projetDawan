@@ -55,8 +55,6 @@ public class Utilisateur implements Serializable {
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Adresse> adresseLivraison = new ArrayList<>();
 
-	private int admin = 0;
-
 	@OneToOne
 	private Panier panier;
 
@@ -159,14 +157,6 @@ public class Utilisateur implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public int getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(int admin) {
-		this.admin = admin;
-	}
-
 	public List<Adresse> getAdresseFacturation() {
 		return adresseFacturation;
 	}
@@ -234,7 +224,7 @@ public class Utilisateur implements Serializable {
 	@Override
 	public String toString() {
 		return "Utilisateur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", motPasse="
-				+ motPasse + ", telephone=" + telephone + ", admin=" + admin + ", adresseFacturation="
+				+ motPasse + ", telephone=" + telephone + ", admin=" + ", adresseFacturation="
 				+ adresseFacturation + ", adresseLivraison=" + adresseLivraison + ", dateInscription=" + dateInscription
 				+ ", dateNaissance=" + dateNaissance + ", panier=" + panier + ", version=" + version + "]";
 	}

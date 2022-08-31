@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +23,7 @@ import fr.dawan.projet1.entities.Utilisateur;
 import fr.dawan.projet1.forms.MotdePasseValidation;
 import fr.dawan.projet1.forms.UserForm;
 import fr.dawan.projet1.repositories.UtilisateurRepository;
+import fr.dawan.projet1.security.SecurityUser;
 
 @Controller
 @RequestMapping("/users")
@@ -28,7 +32,11 @@ public class UserController {
 	@Autowired
 	UtilisateurRepository utilisateurRepository;
 	
-	
+	@GetMapping("/logout")
+	public String deconnection(HttpServletRequest request) {
+		request.getSession().setAttribute("isConnected", null);
+		return "redirect:/logout";
+	}
 	
 	// Infos utilisateur
 	

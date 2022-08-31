@@ -17,10 +17,9 @@
 						<th>Description</th>
 						<th>Prix</th>
 						<th>Photo</th>
-						<th>Quantité</th>
 						<th>Catégorie</th>
 						<th>Marque</th>
-						<!-- 						<th>Disponible</th> -->
+						<th>Quantité</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -31,20 +30,21 @@
 							<td><c:out value="${a.nom}" /></td>
 							<td><c:out value="${a.description}" /></td>
 							<td><c:out value="${a.prix}" /></td>
-							<td><c:out value="${a.photo}" /></td>
-							<td><c:out value="${a.quantite}" /></td>
+							<td>
+							<c:if test="${not empty a.photo}">
+								<img width="150" src="data:image/jpg; base64, ${a.photoBase64}"/>
+							</c:if>
+							</td>
 							<td><c:out value="${a.categorie.nom}" /></td>
 							<td><c:out value="${a.marque.nom}" /></td>
-							<%-- 	<td><c:out value="${a.disponible}"/></td>    --%>
+							<td><c:out value="${a.quantite}" /></td>
 							<c:url value='/admin/updateArticle/${a.id}'
 								context="/springbootProject" var="urlUpdate" />
 							<c:url value='/admin/deleteArticle/${a.id}'
 								context="/springbootProject" var="urlDelete" />
 							<td><a class="btn btn-danger me-3" href="${urlUpdate}">Modifier</a>
-<!-- 							<br></br> -->
 							<a class="btn btn-danger" href="${urlDelete}">Supprimer</a>
 							</td>
-
 						</tr>
 					</c:forEach>
 				</tbody>

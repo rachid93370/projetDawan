@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css" context="/springbootProject" var="urlBootstrap" />
+<c:url value="/webjars/bootstrap/5.1.3/css/bootstrap.min.css"
+	context="/springbootProject" var="urlBootstrap" />
 <link rel="stylesheet" href="${urlBootstrap}">
 
 <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
@@ -16,40 +17,40 @@
 </head>
 <body>
 	<main>
-		<div class="container my-5">
-		<c:url value="/user/update" context="/springbootProject" var="urlform"/>
-			<form:form method="post" action="${urlform}" modelAttribute="formUser" class="col-md-5 p-5 shadow-sm mb-5 bg-body rounded mx-auto">
-				<h1 class="bg-black p-4 rounded text-center text-light h3">Springboot Project</h1>
-				<p class="bg-light p-4 rounded text-center h3">Modifiez vos Informations</p>
-				<div class="mb-3">
-					<form:label path="" for="inputName" class="form-label">Nom</form:label> 
-					<form:input path="" type="text" class="form-control" id="inputName" placeholder="Entrez votre Nom" value="Doe"/>
+		<div class="container-fluid row">
+			<div class="card col-md-6 mx-auto mt-5">
+				<h1 class="bg-black p-4 rounded text-center text-light h3 text-center">Springboot Project</h1>
+				<div class="card-body bg-light">
+					<h2 class="card-title text-center">Vos Informations</h2>
 				</div>
-				<div class="mb-3">
-					<form:label path="" for="inputFirstName" class="form-label">Prénom</form:label> 
-					<form:input path="" type="text" class="form-control" id="inputFirstName" placeholder="Entrez votre Prénom" value="John"/>
-				</div>
-				<div class="mb-3">
-					<form:label path="" for="inputEmail" class="form-label">Email</form:label> 
-					<form:input path="" type="email" class="form-control" id="inputEmail" placeholder="Entrez votre adresse mail" value="jd@dawan.fr"/>
-				</div>
-				<div class="mb-3">
-					<form:label path="" for="inputBirthDate" class="form-label">Date de naissance</form:label> 
-					<form:input path="" type="date" class="form-control" id="inputBirthDate" placeholder="Entrez votre date de naissance" value="1981-05-06"/>
-				</div>
-				<div class="mb-3">
-					<form:label path="" for="inputAddress" class="form-label">Adresse</form:label> 
-					<form:input path="" type="text" class="form-control" id="inputAddress" value="25 rue des fuyards 80000 Amiens"/>
-				</div>
-				<div class="mb-3">
-					<form:label path="" for="inputPhone" class="form-label">Téléphone</form:label> 
-					<form:input path="" type="text" class="form-control" id="inputBirthDate" placeholder="Entrez votre numéro de téléphone" value="0624859568"/>
-				</div>
-				<div class="d-flex justify-content-center flex-column my-4">
-					<button type="submit" class="btn btn-primary mb-3">Envoyer les modifications</button>
-					<a role="button" class="btn btn-secondary text-center" href='<c:url value="/home/" context="/springbootProject"/>'>Retour à l'accueil</a>
-				</div>			
-			</form:form>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><strong>Nom: </strong>${isConnected.nom }</li>
+					<li class="list-group-item"><strong>Prénom: </strong>${isConnected.prenom }</li>
+					<li class="list-group-item"><strong>Email: </strong>${isConnected.email }</li>
+					<li class="list-group-item"><strong>Adresse de facturation: </strong>
+						<ul class="list-group list-group-numbered">
+							<c:forEach items="${isConnected.adresseFacturation}" var="af">
+								<li class="list-group-item"><c:out value='${af.numero} ${af.rue} ${af.codePostal} ${af.ville}' />
+									<a class="btn btn-sm btn-primary float-end" href='<c:url value="/adresse/updateF/'<c:out value='${al.numero} ${al.rue} ${al.codePostal} ${al.ville}'/>'>Mofifier</a></li>
+			    			 </c:forEach>
+			   			</ul>
+			    	</li>
+			    	<li class="list-group-item">		    		
+			    		<strong>Adresse de livraison: </strong>
+			    		<ul class="list-group list-group-numbered">
+			    		<c:forEach items="${isConnected.adresseLivraison}" var ="al">
+			    			<li class="list-group-item"><c:out value='${al.numero} ${al.rue} ${al.codePostal} ${al.ville}'/> <a class="btn btn-sm btn-primary float-end"/>'>Modifier</a></li>
+			    		</c:forEach>
+			   			</ul>
+			    	</li>	
+				<li class="list-group-item"><strong>Téléphone: </strong>${isConnected.telephone }</li>	
+			</ul>
+			<div class="card-body">
+				<a href='<c:url value="/user/update" context="/springbootProject"/>' class="btn btn-primary mb-2">Modifier mes informations</a> 
+				<a href="#" class="btn btn-danger mb-2">Supprimer mon compte</a>
+				<a href='<c:url value="/home/" context="/springbootProject"/>' class="btn btn-secondary mb-2">Retour à l'accueil</a>
+			</div>
 		</div>
-	</main>
+	</div>
+</main>
 <c:import url="footer.jsp" />

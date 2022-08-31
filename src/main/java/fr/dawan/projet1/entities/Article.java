@@ -3,6 +3,7 @@ package fr.dawan.projet1.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -125,6 +126,10 @@ public class Article implements Serializable {
 
 	public byte[] getPhoto() {
 		return photo;
+	}
+	
+	public String getPhotoBase64() {
+		return Base64.getEncoder().encodeToString(photo);
 	}
 
 	public void setPhoto(byte[] photo) {

@@ -27,11 +27,6 @@ public class HomeController {
 	public String accueil() {
 		return "home";
 	}
-
-//	@GetMapping("/signIn")
-//	public String signIn(@ModelAttribute("formUser") UserForm userForm) {
-//		return "addUser";
-//	}
 	
 	// Retourne tous les articles
 	@GetMapping("/articles")
@@ -41,16 +36,16 @@ public class HomeController {
 	}
 
 	// Retourne un article
-	@GetMapping(value = "/articles/{id}")
-	public String getArticleById(Model model, @PathVariable long id) {
-		model.addAttribute("article", articleRepository.ArticleById(id));
-		return "listArticles";
+	@GetMapping(value = "/articles/{idArticle}")
+	public String getArticle(Model model, @PathVariable long idArticle) {
+		model.addAttribute("article", articleRepository.ArticleById(idArticle));
+		return "articleInfo_vue";
 	}
 	
 	@GetMapping(value = "/categories/{idCategorie}")
 	public String listArticles(Model model, @PathVariable long idCategorie) {
 		model.addAttribute("article", articleRepository.ArticleByIdCategorie(idCategorie));
-		return "listArticles";
+		return "listArticles_vue";
 	}
 	
 }

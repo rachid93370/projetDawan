@@ -33,7 +33,7 @@
 				</div>
 				<div class="d-flex justify-content-center flex-column my-4">
 					<button type="submit" class="btn btn-primary mb-3">Envoyer</button>
-					<p class="form-text text-center me-3">Pas de compte ?</p>
+					<p class="form-text text-center me-3">Pas encore inscrit?</p>
 					<a role="button" class="btn btn-secondary text-center mb-3" href='<c:url value="/signIn" context="/springbootProject"/>'>Créer un compte</a>
 					<a role="button" class="btn btn-dark text-center" href='<c:url value="/home/" context="/springbootProject"/>'>Retour à l'accueil</a>
 				</div>

@@ -40,7 +40,29 @@
 					</li>
 				</ul>
 				<div class="d-flex flex-md-row flex-column me-md-2">
+				<c:choose>
+        		<c:when test="${empty sessionScope.isConnected}">				
 					<a class="btn btn-outline-dark me-md-3" href='<c:url value="/login" context="/springbootProject"/>'>Se Connecter</a>
+				</c:when>
+        		<c:otherwise>				
+					<div class="btn-group me-md-3">
+					  <button type="button" class="btn btn-secondary"><c:out value="Bonjour ${isConnected.prenom}"/></button>
+					  <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+					    <span class="visually-hidden">Toggle Dropdown</span>
+					  </button>
+					  <ul class="dropdown-menu">
+					    <li><a class="dropdown-item" href='<c:url value="/user/infos" context="/springbootProject"/>'>Mes informations</a></li>
+					    <li><a class="dropdown-item" href="#">Mes commandes</a></li>
+					    <li><a class="dropdown-item" href='<c:url value="/admin/users" context="/springbootProject"/>'>liste des utilisateurs</a></li>
+					    <li><a class="dropdown-item" href='<c:url value="/admin/articles" context="/springbootProject"/>'>liste des articles</a></li>
+					    <li><a class="dropdown-item" href="#">liste des commandes</a></li>
+					    <li><hr class="dropdown-divider"></li>
+					    <li><a class="dropdown-item" href='<c:url value="/users/logout" context="/springbootProject"/>'>Se déconnecter</a></li>
+					  </ul>
+					</div>
+				</c:otherwise>
+        		</c:choose>		
+<%-- 					<a class="btn btn-outline-dark me-md-3" href='<c:url value="/login" context="/springbootProject"/>'>Se Connecter</a> --%>
 					<a id="basket" type="button" href='<c:url value="/articles/basket" context="/springbootProject"/>' class="btn btn-danger text-light">
 						Mon Panier <span class="badge text-bg-secondary">4</span>
 					</a>

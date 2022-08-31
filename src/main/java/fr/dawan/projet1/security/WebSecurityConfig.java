@@ -22,13 +22,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/admin/**").hasAnyAuthority("ADMINISTRATOR", "SUPER")
-		.antMatchers("/users/**").hasAnyAuthority("USER", "SUPER")
+		.antMatchers("/admin/**").hasAnyAuthority("ADMINISTRATOR")
+		.antMatchers("/users/**").hasAnyAuthority("USER", "ADMINISTRATOR")
 		.anyRequest()
 		.permitAll()
 		.and()
 		.formLogin()
-		.defaultSuccessUrl("/home/")
+		.defaultSuccessUrl("/afterlogin")
 		.loginPage("/login");
 	}
 

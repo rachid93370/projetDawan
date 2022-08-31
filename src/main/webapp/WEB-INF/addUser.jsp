@@ -41,15 +41,29 @@
 					<form:input path="dateNaissance" type="date" class="form-control" id="inputBirthDate" placeholder="Entrez votre date de naissance"/>
 					<form:errors path="dateNaissance" class="text-danger small" />
 				</div>
-				<div class="mb-3">
-					<form:label path="numero"  class="form-label">N°</form:label> 
-					<form:input path="numero" type="text" class="form-control"/>
-					<form:label path="rue" class="form-label">Rue</form:label> 
-					<form:input path="rue" type="text" class="form-control"/>					
-					<form:label path="codePostal" class="form-label">Code Postal</form:label> 
-					<form:input path="codePostal" type="text" class="form-control"/>					
-					<form:label path="ville" class="form-label">Ville</form:label> 
-					<form:input path="ville" type="text" class="form-control"/>
+				<div class="row">
+					<div class="mb-3 col-md-3">
+						<form:label path="numero"  class="form-label">N°</form:label> 
+						<form:input path="numero" type="text" class="form-control"/>
+						<form:errors path="numero" class="text-danger small" />
+					</div>
+					<div class="mb-3 col-md-9">
+						<form:label path="rue" class="form-label">Rue</form:label> 
+						<form:input path="rue" type="text" class="form-control"/>
+						<form:errors path="rue" class="text-danger small" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-md-4">					
+						<form:label path="codePostal" class="form-label">Code Postal</form:label> 
+						<form:input path="codePostal" type="text" class="form-control"/>
+						<form:errors path="codePostal" class="text-danger small" />
+					</div>
+					<div class="mb-3 col-md-8">					
+						<form:label path="ville" class="form-label">Ville</form:label> 
+						<form:input path="ville" type="text" class="form-control"/>	
+						<form:errors path="ville" class="text-danger small" />				
+					</div>
 				</div>
 				<div class="mb-3">
 					<form:label path="motPasse" for="inputPassword" class="form-label">Mot de passe</form:label>

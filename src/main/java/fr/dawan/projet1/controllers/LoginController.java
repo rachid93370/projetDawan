@@ -5,7 +5,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -27,6 +30,7 @@ import fr.dawan.projet1.forms.UserForm;
 import fr.dawan.projet1.repositories.ArticleRepository;
 import fr.dawan.projet1.repositories.UtilisateurRepository;
 import fr.dawan.projet1.repositories.VerificationTokenRepository;
+import fr.dawan.projet1.security.SecurityUser;
 import fr.dawan.projet1.services.MailService;
 
 @Controller
@@ -49,6 +53,13 @@ public class LoginController {
     public String getLogin() {
         return "login";
     }
+	
+	@GetMapping("/afterlogin")
+	public String afterlogin(@AuthenticationPrincipal SecurityUser userDetails, HttpServletRequest request) {
+		Utilisateur u = utilisateurRepository.findByEmail(userDetails.getUsername());
+		request.getSession().setAttribute("isConnected", u);
+		return "redirect:/home/";
+	}
 	
 	// Ajoute un utilisateur
 	
